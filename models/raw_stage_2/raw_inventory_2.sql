@@ -1,0 +1,34 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
+SELECT
+    i.PARTKEY,
+    i.SUPPLIERKEY,
+    i.AVAILQTY,
+    i.SUPPLYCOST,
+    i.PART_SUPPLY_COMMENT,
+    i.SUPPLIER_NAME,
+    i.SUPPLIER_ADDRESS,
+    i.SUPPLIER_NATION_KEY,
+    i.SUPPLIER_PHONE,
+    i.SUPPLIER_ACCTBAL,
+    i.SUPPLIER_COMMENT,
+    i.PART_NAME,
+    i.PART_MFGR,
+    i.PART_BRAND,
+    i.PART_TYPE,
+    i.PART_SIZE,
+    i.PART_CONTAINER,
+    i.PART_RETAILPRICE,
+    i.PART_COMMENT,
+    i.SUPPLIER_NATION_NAME,
+    i.SUPPLIER_NATION_COMMENT,
+    i.SUPPLIER_REGION_KEY,
+    i.SUPPLIER_REGION_NAME,
+    i.SUPPLIER_REGION_COMMENT
+FROM {{ source('tpch_sample_2', 'raw_inventory') }} i
+JOIN {{ ref('raw_orders_2') }} AS o
+    ON i.PARTKEY = o.PARTKEY AND i.SUPPLIERKEY=o.SUPPLIERKEY
+ORDER BY i.PARTKEY, i.SUPPLIERKEY

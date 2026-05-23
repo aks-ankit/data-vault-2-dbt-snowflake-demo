@@ -1,0 +1,13 @@
+dbtvault_snowflake_demo:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: your_account
+      user: your_user
+      password: your_password
+      role: your_role
+      database: YOUR_DATABASE
+      warehouse: your_warehouse
+      schema: YOUR_SCHEMA
+      threads: 4

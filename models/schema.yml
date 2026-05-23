@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: tpch_sample
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF{{ var('tpch_size', 10) }}
+    tables:
+      - name: LINEITEM
+      - name: CUSTOMER
+      - name: ORDERS
+      - name: PARTSUPP
+      - name: SUPPLIER
+      - name: PART
+      - name: NATION
+      - name: REGION
+  - name: tpch_sample_2
+    database: "{{ var('custom_database', 'YOUR_DATABASE') }}"
+    schema: "{{ var('custom_schema', 'YOUR_SCHEMA') }}"
+    tables:
+      - name: raw_orders
+      - name: raw_transactions
+      - name: raw_inventory
