@@ -5,7 +5,7 @@ A complete Data Vault 2.0 implementation on Snowflake using [dbt](https://www.ge
 ## Architecture
 
 ```
-TPC-H Source Data (Snowflake Sample)
+TPC-H Source Data (Snowflake_Sample_Data)[CUSTOMER, LINEITEM, NATION, ORDERS, PART, PARTSUPP, REGION, SUPPLIER]
   |
   v
 Raw Stage (views) ── raw_orders, raw_inventory, raw_transactions
